@@ -1,0 +1,14 @@
+[Unit]
+Description=Checks USB floppy disk change
+Requires=fd-init.service
+After=fd-init.service
+
+[Service]
+Type=idle
+Restart=always
+RestartSec=10
+ExecStart=/bin/bash /usr/local/bin/fd-watch
+WorkingDirectory=/opt/local
+
+[Install]
+WantedBy=multi-user.target

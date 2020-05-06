@@ -1,0 +1,14 @@
+[Unit]
+Description=Checks for USB floppy is plugged in and writes drive info.
+After=rc-local.service
+
+
+[Service]
+Type=oneshot
+TimeoutSec=30s
+RemainAfterExit=true
+ExecStart=/bin/bash /usr/local/bin/fd-init
+WorkingDirectory=/opt/local
+
+[Install]
+WantedBy=multi-user.target
